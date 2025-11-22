@@ -18,7 +18,8 @@ Click here to Interact
 
 <br>
 
-# 📑 Table of Contents
+
+## 📑 Table of Contents
 * [Project Overview](#project-overview)
 * [Dataset Details](#dataset-details)
 * [Data Cleaning and Preparation](#data-cleaning-and-preparation)
@@ -26,12 +27,11 @@ Click here to Interact
 * [Key Insights](#key-insights)
 * [Tools Used](#tools-used)
 * [What I Learned](#what-i-learned)
-* [How to Use This Project](#how-to-use-this-project)
 * [Contact](#contact)
 
----
+<br>
 
-# Project Overview
+## Project Overview
 
 This project is an end to end Power BI dashboard analyzing all four seasons of **Shark Tank India**, created using a structured dataset sourced from Kaggle.
 My goal was to explore funding patterns, investor behavior, industry performance, and founder demographics through a clean, interactive, and easy to understand report.
@@ -47,9 +47,9 @@ The dashboard includes:
 
 The dashboard is fully interactive, includes dynamic DAX calculations, clean navigation, and professional UI/UX design, making it ideal for portfolio demonstrations and analytics practice.
 
----
+<br>
 
-# Dataset Details
+## Dataset Details
 
 **Source:** Kaggle – Shark Tank India Dataset  
 
@@ -65,7 +65,7 @@ The original dataset contained:
 * Multiple financial fields
 
 However, the dataset was **not directly ready for analysis**.
-Many fields were unnecessary, inconsistent, or required reshaping.
+Many fields were unnecessary, inconsistent, or required reshaping.  
 Hence, This dataset was cleaned, transformed and enhanced using:
 
 ✔ Power Query
@@ -73,11 +73,11 @@ Hence, This dataset was cleaned, transformed and enhanced using:
 ✔ DAX measures
 ✔ Custom logic to fix multiple problems
 
----
+<br>
 
-# Data Cleaning and Preparation
+## Data Cleaning and Preparation
 
-The raw Kaggle dataset contained 80 fields/columns and 630+ records.
+The raw Kaggle dataset contained 80 fields/columns and 630+ records.  
 I spent a good amount of time preparing the dataset to make it suitable for a clean Power BI dashboard.
 
 ### ✔ Key cleaning steps I performed:
@@ -100,15 +100,15 @@ I spent a good amount of time preparing the dataset to make it suitable for a cl
 
 After cleaning, I prepared a structured version of the dataset suitable for multi-page reporting.
 
----
+<br>
 
-# Dashboard Pages
+## Dashboard Pages
 
 My dashboard contains **four pages**, each with a specific purpose:
 
----
 
-## 🟧 1) Overview
+
+### 1) Overview
 
 Gives a high-level snapshot of:
 
@@ -130,7 +130,7 @@ Gives a high-level snapshot of:
 
 ---
 
-## 🟦 2) Sharks/Investors
+### 2) Sharks/Investors
 
 A complete Sharks-focused breakdown:
 
@@ -151,7 +151,7 @@ A complete Sharks-focused breakdown:
 
 ---
 
-## 🟩 3) Industries
+### 3) Industries
 
 A deep dive into industries:
 
@@ -167,7 +167,7 @@ A deep dive into industries:
 
 ---
 
-## 🟦 4) Pitchers/Founders
+### 4) Pitchers/Founders
 
 Insights about the pitchers:
 
@@ -183,8 +183,9 @@ Insights about the pitchers:
 </p>
 
 ---
+<br>
 
-# Key Insights
+## Key Insights
 
 Some interesting findings from the dashboard:
 
@@ -196,9 +197,9 @@ Some interesting findings from the dashboard:
 * Season 2 had the highest number of total pitches
 * NOOE secured the highest individual investment of ₹50M from Peyush, one of the standout deals across seasons.
 
----
+<br>
 
-# Tools Used
+## Tools Used
 
 * **Power BI Desktop**
 * **Power Query**
@@ -207,9 +208,9 @@ Some interesting findings from the dashboard:
 * **Canva & Figma** (for icons/design elements)
 * **Kaggle dataset**
 
----
+<br>
 
-#  What I Learned
+##  What I Learned
 
 While building this project, I improved my skills in:
 
@@ -222,18 +223,20 @@ While building this project, I improved my skills in:
 * ✔ Controlling visual interactions
 * ✔ Creating professional multi-page reports
 
----
+<br>
 
-# Conclusion
+## Conclusion
 
-Working on this dashboard was a great learning experience that combined data cleaning, analytical thinking, and design. It allowed me to convert raw information into actionable insights while practicing real-world Power BI development.
+Working on this dashboard was a great learning experience that combined data cleaning, analytical thinking, and design.  
+It allowed me to convert raw information into actionable insights while practicing real-world Power BI development.
 
----
+<br>
 
-# Contact
+## Contact
 
-If you'd like to connect, share feedback on this project, or want to learn how I built dashboard, feel free to reach out:
-**LinkedIn:** *[Vivek Raturi](www.linkedin.com/in/vivekraturi)*
+If you'd like to connect, share feedback on this project, or want to learn how I built dashboard, feel free to reach out:  
+
+**LinkedIn:** [Vivek Raturi](www.linkedin.com/in/vivekraturi)
 
 ---
 
