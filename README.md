@@ -18,7 +18,7 @@ A complete analysis of Shark Tank India (Seasons 1–4) using Power BI.
 
 ---
 
-# 📌 Project Overview
+# Project Overview
 
 I created this Power BI dashboard to analyze **4 seasons of Shark Tank India** using a dataset from Kaggle.
 My main objective was to study funding trends, investor behavior, industry performance, and founder demographics in a clean, interactive, and user-friendly dashboard.
@@ -36,7 +36,7 @@ The project includes:
 
 ---
 
-# 📁 Dataset Details
+# Dataset Details
 
 **Source:** Kaggle – Shark Tank India (Season 1–4) Dataset
 **Link:** *Paste Kaggle link here*
