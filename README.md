@@ -107,6 +107,7 @@ Gives a high-level snapshot of:
 * Top startups
 * Top-performing sharks
 
+
 <p align="center">
   <img src="images/1.png" width="750">
 </p>
@@ -126,6 +127,10 @@ A complete Sharks-focused breakdown:
 * **Dynamic Top 3 Podium Ranking** with shark images
 
   * Works perfectly with slicers and metric.
+ 
+    <p align="center">
+  <img src="images/2.png" width="750">
+</p>
 
 ---
 
@@ -138,6 +143,10 @@ A deep dive into industries:
 * KPI summary for selected industries
 * Season-wise trends per industry
 
+  <p align="center">
+  <img src="images/3.png" width="750">
+</p> 
+
 ---
 
 ## 🟦 4) Pitchers/Founders
@@ -149,6 +158,10 @@ Insights about the pitchers:
 * Location distribution (city & state)
 * Valuation asks by founders
 * Team size analysis
+
+  <p align="center">
+  <img src="images/4.png" width="750">
+</p>
 
 ---
 
