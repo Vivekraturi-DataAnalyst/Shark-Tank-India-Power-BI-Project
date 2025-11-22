@@ -107,7 +107,10 @@ Gives a high-level snapshot of:
 * Top startups
 * Top-performing sharks
 
-<img src="images/1.png" width="750">
+<p align="center">
+  <img src="images/1.png" width="750">
+</p>
+
 
 ---
 
