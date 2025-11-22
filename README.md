@@ -20,8 +20,8 @@
 
 # Project Overview
 
-This project is an end-to-end Power BI dashboard analyzing all four seasons of **Shark Tank India**, created using a structured dataset sourced from Kaggle.
-My goal was to explore funding patterns, investor behavior, industry performance, and founder demographics through a clean, interactive, and easy-to-understand report.
+This project is an end to end Power BI dashboard analyzing all four seasons of **Shark Tank India**, created using a structured dataset sourced from Kaggle.
+My goal was to explore funding patterns, investor behavior, industry performance, and founder demographics through a clean, interactive, and easy to understand report.
 
 The dashboard includes:
 
@@ -32,7 +32,7 @@ The dashboard includes:
 * Clean formatting
 * DAX-powered logic for ranking, dynamic images, titles, and metrics
 
-The dashboard is fully interactive, includes dynamic DAX calculations, clean navigation, and professional UI/UX design — making it ideal for portfolio demonstrations and analytics practice.
+The dashboard is fully interactive, includes dynamic DAX calculations, clean navigation, and professional UI/UX design, making it ideal for portfolio demonstrations and analytics practice.
 
 ---
 
@@ -111,7 +111,7 @@ Gives a high-level snapshot of:
     
 
 <p align="center">
-  <img src="images/1.png" width="750">
+  <img src="images/1.png" width="700">
 </p>
 
 
