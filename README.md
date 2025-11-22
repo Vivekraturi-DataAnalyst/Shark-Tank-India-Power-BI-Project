@@ -1,8 +1,7 @@
 <div align="center" style="line-height: 1.4;">
 
-<p style="font-size: 34px; font-weight: bold; margin: 0;">
-🦈 Shark Tank India – Power BI Dashboard
-</p>
+<h1>🦈 Shark Tank India – Power BI Dashboard
+</h1>
 
 <p style="font-size: 22px; margin: 6px 0 0 0;">
 🚀 A complete analysis of Shark Tank India (Seasons 1–4) using Power BI.
