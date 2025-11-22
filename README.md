@@ -15,7 +15,6 @@
 <br>
 
 # 📑 Table of Contents
-
 * [Project Overview](#project-overview)
 * [Dataset Details](#dataset-details)
 * [Data Cleaning and Preparation](#data-cleaning-and-preparation)
