@@ -127,8 +127,8 @@ A complete Sharks-focused breakdown:
 * **Dynamic Top 3 Podium Ranking** with shark images
 
   * Works perfectly with slicers and metric.
- 
-    <p align="center">
+
+   <p align="center">
   <img src="images/2.png" width="750">
 </p>
 
@@ -143,7 +143,7 @@ A deep dive into industries:
 * KPI summary for selected industries
 * Season-wise trends per industry
 
-  <p align="center">
+ <p align="center">
   <img src="images/3.png" width="750">
 </p> 
 
