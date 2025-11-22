@@ -3,7 +3,7 @@
 <h1>🦈 Shark Tank India – Power BI Dashboard
 </h1>
 
-<p style="font-size: 22px; margin: 6px 0 0 0;">
+<p style="font-size: 30px; margin: 6px 0 0 0;">
 🚀 A complete analysis of Shark Tank India (Seasons 1–4) using Power BI.
 </p>
 
@@ -14,8 +14,6 @@ Click here to view the Live Dashboard
 </p>
 
 </div>
-
----
 
 
 # 📑 Table of Contents
