@@ -130,6 +130,8 @@ A complete Sharks-focused breakdown:
 
   * Works perfectly with slicers and metric.
 
+<br>    
+
    <p align="center">
   <img src="images/2.png" width="700">
 </p>
@@ -144,6 +146,7 @@ A deep dive into industries:
 * Top startups within each industry
 * KPI summary for selected industries
 * Season-wise trends per industry
+<br>
 
  <p align="center">
   <img src="images/3.png" width="700">
@@ -160,6 +163,7 @@ Insights about the pitchers:
 * Location distribution (city & state)
 * Valuation asks by founders
 * Team size analysis
+<br>
 
   <p align="center">
   <img src="images/4.png" width="700">
