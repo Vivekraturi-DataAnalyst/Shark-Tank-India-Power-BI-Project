@@ -1,7 +1,7 @@
 # 🦈 Shark Tank India – Power BI Dashboard
 
 ### 🚀 A complete analysis of Shark Tank India (Seasons 1–4) using Power BI.
-### 🔗 **Live Dashboard Link:** *{Click here to interact](https://app.powerbi.com/view?r=eyJrIjoiZGI3MDkxOWUtZjQyNy00YjE1LWIyYzItZjNjNmVlMWNkOTAxIiwidCI6ImQ4MTIxYzJhLTEzMzktNDk2NC1hN2NmLWMyZjU5OTAxYzBlNiJ9)*
+### 🔗 **Live Dashboard Link:** *[Click here to interact](https://app.powerbi.com/view?r=eyJrIjoiZGI3MDkxOWUtZjQyNy00YjE1LWIyYzItZjNjNmVlMWNkOTAxIiwidCI6ImQ4MTIxYzJhLTEzMzktNDk2NC1hN2NmLWMyZjU5OTAxYzBlNiJ9)*
 ---
 
 # 📑 Table of Contents
@@ -40,7 +40,7 @@ The dashboard is fully interactive, includes dynamic DAX calculations, clean nav
 
 **Source:** Kaggle – Shark Tank India Dataset  
 
-**Link:** *{Kaggle.com](https://www.kaggle.com/datasets/thirumani/shark-tank-india)*
+**Link:** *[Kaggle.com](https://www.kaggle.com/datasets/thirumani/shark-tank-india)*
 
 The original dataset contained:
 
