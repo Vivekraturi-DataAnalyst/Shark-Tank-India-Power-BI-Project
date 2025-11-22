@@ -1,18 +1,23 @@
-<div align="center">
+<div align="center" style="line-height: 1.4;">
 
-<h1>🦈 Shark Tank India – Power BI Dashboard</h1>
+<p style="font-size: 34px; font-weight: bold; margin: 0;">
+🦈 Shark Tank India – Power BI Dashboard
+</p>
 
-<h2>🚀 A complete analysis of Shark Tank India (Seasons 1–4) using Power BI.</h2>
+<p style="font-size: 22px; margin: 6px 0 0 0;">
+🚀 A complete analysis of Shark Tank India (Seasons 1–4) using Power BI.
+</p>
 
-<h3>
-  🔗 <a href="https://app.powerbi.com/view?r=eyJrIjoiZGI3MDkxOWUtZjQyNy00YjE1LWIyYzItZjNjNmVlMWNkOTAxIiwidCI6ImQ4MTIxYzJhLTEzMzktNDk2NC1hN2NmLWMyZjU5OTAxYzBlNiJ9" target="_blank">
-  Click here to view the Live Dashboard
-  </a>
-</h3>
+<p style="font-size: 20px; margin: 8px 0 0 0;">
+🔗 <a href="https://app.powerbi.com/view?r=eyJrIjoiZGI3MDkxOWUtZjQyNy00YjE1LWIyYzItZjNjNmVlMWNkOTAxIiwidCI6ImQ4MTIxYzJhLTEzMzktNDk2NC1hN2NmLWMyZjU5OTAxYzBlNiJ9" target="_blank">
+Click here to view the Live Dashboard
+</a>
+</p>
 
 </div>
 
-<br>
+---
+
 
 # 📑 Table of Contents
 * [Project Overview](#project-overview)
