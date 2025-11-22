@@ -108,7 +108,7 @@ Gives a high-level snapshot of:
 * Top-performing sharks
 
 
-    
+<br>    
 
 <p align="center">
   <img src="images/1.png" width="700">
@@ -131,7 +131,7 @@ A complete Sharks-focused breakdown:
   * Works perfectly with slicers and metric.
 
    <p align="center">
-  <img src="images/2.png" width="750">
+  <img src="images/2.png" width="700">
 </p>
 
 ---
@@ -146,7 +146,7 @@ A deep dive into industries:
 * Season-wise trends per industry
 
  <p align="center">
-  <img src="images/3.png" width="750">
+  <img src="images/3.png" width="700">
 </p> 
 
 ---
@@ -162,7 +162,7 @@ Insights about the pitchers:
 * Team size analysis
 
   <p align="center">
-  <img src="images/4.png" width="750">
+  <img src="images/4.png" width="700">
 </p>
 
 ---
