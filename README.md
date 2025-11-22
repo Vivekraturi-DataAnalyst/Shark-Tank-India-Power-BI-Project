@@ -108,6 +108,8 @@ Gives a high-level snapshot of:
 * Top-performing sharks
 
 
+    
+
 <p align="center">
   <img src="images/1.png" width="750">
 </p>
