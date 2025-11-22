@@ -1,7 +1,7 @@
 # 🦈 Shark Tank India – Power BI Dashboard
 
 A complete analysis of Shark Tank India (Seasons 1–4) using Power BI.
-
+🔗 **Live Dashboard Link:** *Paste your public Power BI link here*
 ---
 
 # 📑 Table of Contents
@@ -20,26 +20,26 @@ A complete analysis of Shark Tank India (Seasons 1–4) using Power BI.
 
 # Project Overview
 
-I created this Power BI dashboard to analyze **4 seasons of Shark Tank India** using a dataset from Kaggle.
-My main objective was to study funding trends, investor behavior, industry performance, and founder demographics in a clean, interactive, and user-friendly dashboard.
+This project is an end-to-end Power BI dashboard analyzing all four seasons of **Shark Tank India**, created using a structured dataset sourced from Kaggle.
+My goal was to explore funding patterns, investor behavior, industry performance, and founder demographics through a clean, interactive, and easy-to-understand report.
 
-The project includes:
+The dashboard includes:
 
 * Dynamic KPIs
 * Multi-page analysis
 * Slicer-driven insights
-* Professional navigation
+* Professionally designed layouts
 * Clean formatting
 * DAX-powered logic for ranking, dynamic images, titles, and metrics
 
-🔗 **Live Dashboard Link:** *Paste your public Power BI link here*
+The dashboard is fully interactive, includes dynamic DAX calculations, clean navigation, and professional UI/UX design — making it ideal for portfolio demonstrations and analytics practice.
 
 ---
 
 # Dataset Details
 
 **Source:** Kaggle – Shark Tank India (Season 1–4) Dataset
-**Link:** *Paste Kaggle link here*
+**Link:** *(https://www.kaggle.com/datasets/thirumani/shark-tank-india)*
 
 The original dataset contained:
 
@@ -52,11 +52,18 @@ The original dataset contained:
 
 However, the dataset was **not directly ready for analysis**.
 Many fields were unnecessary, inconsistent, or required reshaping.
+Hence, This dataset was cleaned, transformed and enhanced using:
+
+✔ Power Query
+✔ Excel
+✔ DAX measures
+✔ Custom logic to fix multiple problems
 
 ---
 
-# 🧼 Data Cleaning and Preparation
+# Data Cleaning and Preparation
 
+The raw Kaggle dataset contained 80 fields/columns and 630+ records.
 I spent a good amount of time preparing the dataset to make it suitable for a clean Power BI dashboard.
 
 ### ✔ Key cleaning steps I performed:
@@ -81,7 +88,7 @@ After cleaning, I prepared a structured version of the dataset suitable for mult
 
 ---
 
-# 📊 Dashboard Pages
+# Dashboard Pages
 
 My dashboard contains **four pages**, each with a specific purpose:
 
@@ -89,21 +96,21 @@ My dashboard contains **four pages**, each with a specific purpose:
 
 ## 🟧 1) Overview
 
-A high-level summary of:
+Gives a high-level snapshot of:
 
 * Total pitches
 * Total deals
 * Total investment
 * Avg deal amounts
 * Industry distribution
-* Funding trend across seasons
+* Top startups
 * Top-performing sharks
 
 ---
 
-## 🟦 2) Investors
+## 🟦 2) Sharks/Investors
 
-A complete investor-focused breakdown:
+A complete Sharks-focused breakdown:
 
 * Deals closed by each shark
 * Total investment amount
@@ -112,90 +119,83 @@ A complete investor-focused breakdown:
 * List of startups invested by the selected shark
 * **Dynamic Top 3 Podium Ranking** with shark images
 
-  * Works perfectly with slicers and metric selector
+  * Works perfectly with slicers and metric.
 
 ---
 
 ## 🟩 3) Industries
 
-A deep dive into industry behavior:
+A deep dive into industries:
 
 * Industries by investment amount or deal count
 * Top startups within each industry
 * KPI summary for selected industries
-* Dynamic chart titles based on slicers
 * Season-wise trends per industry
 
 ---
 
-## 🟦 4) Founders
+## 🟦 4) Pitchers/Founders
 
 Insights about the pitchers:
 
-* Gender categories
+* Gender distribution
 * Age groups
 * Location distribution (city & state)
-* Revenue and sales patterns
-* Deal conversion rates
+* Valuation asks by founders
 * Team size analysis
 
 ---
 
-# 📈 Key Insights
+# Key Insights
 
 Some interesting findings from the dashboard:
 
-* F&B, Fashion, and Tech dominate the startup pitches
-* Certain sharks prefer small frequent deals while others invest larger amounts in fewer startups
-* Founders aged 25–35 form the majority
-* Solo founders have lower deal conversion than team founders
-* Delhi and Maharashtra lead in the number of pitches
-* Season 1 had the highest number of total pitches
-* Some industries have much better conversion rates than others
+* Industries like Food & Beverages, Fashion, and Medical receive the highest number of investments.
+* Across most seasons, Aman and Namita tend to be among the most active sharks in terms of number of deals.
+* Founders aged 30-50 form the majority
+* Out of 634 pitches, 360 converted into deals, showing a strong overall conversion rate of 56.78% across all seasons. 
+* Maharashtra and Delhi lead in the number of pitches
+* Season 2 had the highest number of total pitches
+* NOOE secured the highest individual investment of ₹50M from Peyush, one of the standout deals across seasons.
 
 ---
 
-# 🛠 Tools Used
+# Tools Used
 
 * **Power BI Desktop**
 * **Power Query**
 * **DAX**
 * **Excel**
-* **Canva** (for icons/design elements)
+* **Canva & Figma** (for icons/design elements)
 * **Kaggle dataset**
 
 ---
 
-# 🎓 What I Learned
+#  What I Learned
 
 While building this project, I improved my skills in:
 
-* Power Query data cleaning
-* Unpivoting data for star-schema-like structures
-* Writing advanced DAX
-* Creating dynamic titles and dynamic images
-* Fixing complex multiple-row pitch issues
-* Dashboard layout and user experience design
-* Publishing dashboards to Power BI Service
-* Controlling visual interactions
-* Creating professional multi-page reports
+* ✔ Power Query data cleaning
+* ✔ Unpivoting data for star-schema-like structures
+* ✔ Advanced DAX (TOPN, RANKX, KEEPFILTERS, dynamic filters)
+* ✔ Creating dynamic titles and dynamic images
+* ✔ Fixing complex dataset issues
+* ✔ Dashboard layout and UX design
+* ✔ Controlling visual interactions
+* ✔ Creating professional multi-page reports
 
 ---
 
-# 📂 How to Use This Project
+# Conclusion
 
-1. Download the PBIX file
-2. Open it in the latest version of Power BI Desktop
-3. All slicers, filters, and dynamic visuals will work automatically
-4. No paid visuals were used — everything uses Power BI native visuals
+Working on this dashboard was a great learning experience that combined data cleaning, analytical thinking, and design. It allowed me to convert raw information into actionable insights while practicing real-world Power BI development.
 
 ---
 
-# 📞 Contact
+# Contact
 
-If you want the PBIX file, want guidance on building dashboards, or want to connect, feel free to reach out:
-
-**LinkedIn:** *Paste your LinkedIn URL here*
+If you'd like to connect, share feedback on this project, or want to learn how I built dashboard, feel free to reach out:
+**LinkedIn:** *www.linkedin.com/in/vivekraturi*
 
 ---
 
