@@ -1,4 +1,4 @@
-# 🦈 Shark Tank India – Power BI Dashboard
+<h2 align="center">🦈 Shark Tank India – Power BI Dashboard</h2>
 
 ### 🚀 A complete analysis of Shark Tank India (Seasons 1–4) using Power BI.
 ### 🔗 **Live Dashboard Link:** *[Click here to interact](https://app.powerbi.com/view?r=eyJrIjoiZGI3MDkxOWUtZjQyNy00YjE1LWIyYzItZjNjNmVlMWNkOTAxIiwidCI6ImQ4MTIxYzJhLTEzMzktNDk2NC1hN2NmLWMyZjU5OTAxYzBlNiJ9)*
