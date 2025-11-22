@@ -38,7 +38,7 @@ The dashboard is fully interactive, includes dynamic DAX calculations, clean nav
 
 # Dataset Details
 
-**Source:** Kaggle – Shark Tank India (Season 1–4) Dataset
+**Source:** Kaggle – Shark Tank India (Season 1–4) Dataset  
 **Link:** *(https://www.kaggle.com/datasets/thirumani/shark-tank-india)*
 
 The original dataset contained:
