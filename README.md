@@ -3,7 +3,7 @@
 <h2 align="center">🚀 A complete analysis of Shark Tank India (Seasons 1–4) using Power BI.</h2>
 
 <h3 align="center">
-  🔗 <a href="https://app.powerbi.com/view?r=eyJrIjoiZGI3MDkxOWUtZjQyNy00YjE1LWIyYzItZjNjNmVlMWNkOTAxIiwidCI6ImQ4MTIxYzJhLTEzMzktNDk2NC1hN2NmLWMyZjU5OTAxYzBlNiJ9" target="_blank">Click here to view the Live Dashboard</a>
+  🔗 LinK to Live Dashboard <a href="https://app.powerbi.com/view?r=eyJrIjoiZGI3MDkxOWUtZjQyNy00YjE1LWIyYzItZjNjNmVlMWNkOTAxIiwidCI6ImQ4MTIxYzJhLTEzMzktNDk2NC1hN2NmLWMyZjU5OTAxYzBlNiJ9" target="_blank">Click here to interact</a>
 </h3>
 
 ---
