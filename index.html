@@ -683,6 +683,32 @@
     .close-lightbox:hover {
       color: #a78bfa;
     }
+
+   /* Button inside the Lightbox */
+    .lightbox-cta {
+      position: absolute;
+      bottom: 40px; /* Sits at the bottom of the screen */
+      
+      /* Style matching your Hero Button */
+      padding: 12px 35px;
+      background: linear-gradient(90deg, #8b5cf6, #ec4899);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      
+      /* Glow effect */
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+      z-index: 10001; /* Ensure it's clickable */
+      transition: transform 0.3s ease;
+    }
+
+    .lightbox-cta:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 40px rgba(139, 92, 246, 0.8);
+    }
+   
   </style>
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
@@ -1041,35 +1067,43 @@
   });
 </script>
 
-  <!-- Lightbox Structure -->
+<!-- Lightbox Structure -->
 <div id="lightbox" class="lightbox">
   <span class="close-lightbox">&times;</span>
   <img class="lightbox-content" id="lightbox-img">
+  
+  <!-- NEW: Interact Button -->
+  <a href="https://app.powerbi.com/view?r=eyJrIjoiZGI3MDkxOWUtZjQyNy00YjE1LWIyYzItZjNjNmVlMWNkOTAxIiwidCI6ImQ4MTIxYzJhLTEzMzktNDk2NC1hN2NmLWMyZjU5OTAxYzBlNiJ9" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     class="lightbox-cta">
+    Interact 🚀
+  </a>
 </div>
 
-<script>
+  <script>
   // Get elements
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   const closeBtn = document.querySelector('.close-lightbox');
   const dashboardImages = document.querySelectorAll('.dashboard-img');
 
-  // Add click event to all dashboard images
+  // Open Lightbox
   dashboardImages.forEach(img => {
     img.addEventListener('click', () => {
-      lightbox.classList.add('active'); // Show popup
-      lightboxImg.src = img.src; // Set popup image same as clicked image
+      lightbox.classList.add('active');
+      lightboxImg.src = img.src;
     });
   });
 
-  // Close when clicking the "X"
+  // Close when clicking "X"
   closeBtn.addEventListener('click', () => {
     lightbox.classList.remove('active');
   });
 
-  // Close when clicking anywhere outside the image (background)
+  // Close ONLY when clicking the black background (not the image or the button)
   lightbox.addEventListener('click', (e) => {
-    if (e.target !== lightboxImg) {
+    if (e.target === lightbox) {
       lightbox.classList.remove('active');
     }
   });
@@ -1078,6 +1112,7 @@
 </body>
 
 </html>
+
 
 
 
