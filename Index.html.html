@@ -1,0 +1,974 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shark Tank India - Power BI Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <style>
+    /* ===== BASE STYLES ===== */
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #000000; /* Main background color - change here for different bg */
+      color: #ffffff; /* Main text color */
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    /* ===== ANIMATED BACKGROUND ===== */
+    /* Fixed gradient background that creates subtle purple/blue glow effect */
+    .page-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* Customize gradient colors by changing rgba values below */
+      background: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.1), transparent 50%),
+                  radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.1), transparent 50%),
+                  radial-gradient(circle at 40% 70%, rgba(168, 85, 247, 0.05), transparent 40%);
+      z-index: -1;
+    }
+
+    /* ===== HERO BANNER SECTION ===== */
+    /* Top banner with title, description, and CTA button */
+ .hero-banner {
+      position: relative;
+      min-height: 85%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 30px; /* High padding ensures text doesn't get cut */
+      
+      /* Dark Deep Purple to Black Gradient */
+      background: linear-gradient(180deg, #170b29 0%, #0d061f 60%, #000000 100%);
+      
+      overflow: hidden;
+      
+      /* === THE MAGIC FADE === */
+      /* This tells the browser: "Keep the top 80% solid, but dissolve the bottom 20% to nothing" */
+      -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    }
+
+    .hero-banner::after {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(147, 51, 234, 0.3), transparent 70%);
+      border-radius: 50%;
+      top: -200px;
+      right: -200px;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(-30px, 30px); }
+    }
+
+    .hero-inner {
+      max-width: 750px; /* Reduced width to match content blocks */
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+
+
+    /* ===== HERO TITLE WITH GRADIENT TEXT ===== */
+    .hero-title {
+      font-size: 2.8rem; /* Title size */
+      font-weight: 700;
+      margin: 0 0 20px 0;
+      /* Gradient text effect - customize these colors for different gradients */
+      /* Current: White → Light Purple → Brighter Purple */
+      background: linear-gradient(135deg, #ffffff 0%, #a78bfa 50%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.6;
+      text-shadow: 0 0 60px rgba(167, 139, 250, 0.3); /* Glow effect */
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      color: #c4b5fd;
+      margin: 0 0 35px 0;
+      font-weight: 300;
+      letter-spacing: 0.3px;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 12px 35px;
+      background: linear-gradient(90deg, #8b5cf6 0%, #7c3aed 100%);
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      box-shadow: 0 15px 30px rgba(139, 92, 246, 0.3);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    .hero-cta:hover::before {
+      left: 100%;
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 25px 50px rgba(139, 92, 246, 0.6);
+    }
+
+    /* Content Wrapper */
+    .content-wrapper {
+      position: relative;
+      z-index: 1;
+      padding: 0;
+    }
+
+    .page-container {
+      max-width: 750px; /* Narrower width for tighter, centered layout */
+      margin: 0 auto;
+      padding: 50px 30px;
+    }
+
+    /* ===== CONTENT SECTION BLOCKS ===== */
+    /* Main container style for each content section */
+    .section-block {
+      /* Glass-morphism effect background */
+      background: linear-gradient(145deg, rgba(30, 20, 50, 0.5), rgba(20, 15, 35, 0.5));
+      backdrop-filter: blur(10px); /* Blur effect for glass look */
+      border: 1px solid rgba(139, 92, 246, 0.15); /* Subtle purple border */
+      border-radius: 16px; /* Rounded corners - increase for more roundness */
+      padding: 35px; /* Inner spacing - reduced for tighter blocks */
+      margin-bottom: 30px; /* Space between sections */
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); /* Drop shadow */
+      transition: all 0.3s ease; /* Smooth hover animation */
+    }
+
+    .section-block:hover {
+      transform: translateY(-5px);
+      border-color: rgba(139, 92, 246, 0.4);
+      box-shadow: 0 20px 60px rgba(139, 92, 246, 0.3);
+    }
+
+    /* Special TOC Block */
+    .toc-block {
+      /* Much darker, almost identical to other blocks but with a tiny purple hint */
+      background: linear-gradient(145deg, rgba(35, 25, 60, 0.5), rgba(15, 10, 25, 0.6));
+      
+      /* Subtle border, not bright */
+      border: 1px solid rgba(139, 92, 246, 0.15);
+      
+      /* Standard styling */
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 35px;
+      margin-bottom: 30px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .toc-block::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(167, 139, 250, 0.1), transparent 60%);
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+/* specific rule to remove underline from TOC header */
+    .toc-block .section-header::after {
+      display: none;
+    }
+
+    /* ===== SECTION HEADERS ===== */
+    /* Main section heading (e.g., "Project Overview", "Tools Used") */
+    .section-header {
+      font-size: 1.8rem; /* Slightly smaller header size */
+      font-weight: 700;
+      margin: 0 auto 25px auto; /* Centered with auto margins */
+      color: #ffffff; /* Header text color */
+      position: relative;
+      display: block; /* Changed to block for center alignment */
+      text-align: center; /* Center align text */
+      padding-bottom: 12px;
+    }
+
+    /* Underline decoration below section headers */
+    .section-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%; /* Start from center */
+      transform: translateX(-50%); /* Center the underline */
+      width: 100px; /* Fixed width for centered underline */
+      height: 2px; /* Thickness of underline */
+      /* Gradient underline - customize colors */
+      background: linear-gradient(90deg, #8b5cf6, #ec4899);
+      border-radius: 2px;
+    }
+
+    /* Subsection heading (e.g., "1) Overview", "Key cleaning steps") */
+    .subsection-header {
+      font-size: 1.3rem; /* Slightly smaller subsection size */
+      font-weight: 600;
+      color: #e9d5ff; /* Lighter purple color */
+      margin: 25px 0 15px 0; /* Reduced margins */
+      position: relative;
+      padding-left: 18px; /* Space for left bar decoration */
+    }
+
+    /* Left vertical bar decoration for subsection headers */
+    .subsection-header::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px; /* Bar thickness */
+      height: 24px; /* Bar height */
+      /* Gradient bar - customize colors */
+      background: linear-gradient(180deg, #8b5cf6, #ec4899);
+      border-radius: 2px;
+    }
+
+    /* Paragraph Text */
+    .text-content {
+      font-size: 0.98rem; /* Slightly smaller text */
+      color: #d8b4fe;
+      line-height: 1.65; /* Tighter line height */
+      margin: 0 0 15px 0; /* Reduced bottom margin */
+    }
+
+    .text-content strong {
+      color: #f3e8ff;
+      font-weight: 600;
+    }
+
+    /* ===== LIST ITEMS STYLING ===== */
+    /* Bulleted lists throughout the page */
+    .content-list {
+      list-style: none; /* Remove default bullets */
+      padding: 0;
+      margin: 20px 0; /* Top/bottom spacing */
+    }
+
+    /* Individual list items */
+    .content-list li {
+      position: relative;
+      padding: 10px 0 10px 35px; /* Left padding for bullet icon */
+      font-size: 1rem; /* List item text size */
+      color: #d8b4fe; /* Light purple text color */
+      line-height: 1.6;
+      transition: all 0.3s ease; /* Smooth hover animation */
+    }
+
+    /* Custom bullet icon (arrow) before each list item */
+    .content-list li::before {
+      content: '▸'; /* Bullet character - change to ■, ●, ◆, etc. */
+      position: absolute;
+      left: 10px; /* Distance from left edge */
+      top: 10px;
+      color: #a78bfa; /* Bullet color */
+      font-size: 1.4rem; /* Bullet size */
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    /* Hover effect - list item moves right slightly */
+    .content-list li:hover {
+      padding-left: 42px; /* Moves text right on hover */
+      color: #f3e8ff; /* Lighter text on hover */
+    }
+
+    /* Hover effect - bullet changes color and moves */
+    .content-list li:hover::before {
+      color: #c084fc; /* Brighter bullet on hover */
+      transform: translateX(3px);
+    }
+
+    /* TOC Links */
+    .toc-list {
+      position: relative;
+      z-index: 1;
+    }
+
+    .toc-list li {
+      padding-left: 45px; /* More space between bullet and text */
+    }
+
+    .toc-list li::before {
+      content: '◆';
+      color: #c084fc;
+      left: 15px; /* Fixed position for diamond */
+    }
+
+    .toc-link {
+      color: #e9d5ff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .toc-link:hover {
+      color: #ffffff; /* Bright white on hover */
+      transform: translateX(8px); /* Only text animates left */
+    }
+
+    /* Highlight Box - New Design */
+  .feature-highlight {
+      /* Darker background to look "indented" or "inset" */
+      background: rgba(0, 0, 0, 0.25);
+      
+      /* Very subtle purple border */
+      border: 1px solid rgba(139, 92, 246, 0.15);
+      
+      border-radius: 12px;
+      padding: 25px 30px;
+      margin: 30px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-highlight::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+     background: linear-gradient(180deg, #8b5cf6, #7c3aed);
+    }
+
+    .feature-highlight .text-content {
+      margin: 8px 0;
+    }
+
+    /* Check icon - themed purple/pink to match design */
+    .check-icon {
+      color: #c084fc; /* Purple to match theme */
+      font-weight: 700;
+      margin-right: 8px;
+      font-size: 1.1rem;
+    }
+
+    /* Links */
+.inline-link {
+      /* This is the EXACT purple from the button (#8b5cf6) */
+      color: #8b5cf6; 
+      
+      text-decoration: none;
+      font-weight: 700; /* Bold is necessary to make the color look "filled" like the button */
+      
+      /* Matching underline */
+      border-bottom: 2px solid rgba(139, 92, 246, 0.4); 
+      
+      transition: all 0.3s ease;
+    }
+
+    .inline-link:hover {
+      /* On hover: Turns white just like the button text */
+      color: #ffffff;
+      border-bottom-color: #ffffff;
+      
+      /* Adds the same glowing shadow effect */
+      text-shadow: 0 0 15px rgba(139, 92, 246, 0.8);
+    }
+
+    /* Image Containers */
+    .visual-placeholder {
+      background: linear-gradient(145deg, rgba(30, 20, 50, 0.4), rgba(20, 15, 35, 0.4));
+      border: 2px dashed rgba(139, 92, 246, 0.3);
+      border-radius: 16px;
+      padding: 60px 40px;
+      text-align: center;
+      margin: 40px 0;
+      transition: all 0.3s ease;
+    }
+
+    .visual-placeholder:hover {
+      border-color: rgba(139, 92, 246, 0.6);
+      background: linear-gradient(145deg, rgba(40, 30, 60, 0.4), rgba(30, 20, 45, 0.4));
+    }
+
+    .visual-placeholder p {
+      color: #a78bfa;
+      font-style: italic;
+      font-size: 1.05rem;
+      margin: 0;
+    }
+
+    /* Divider Line */
+   .section-divider {
+      height: 1px;
+      
+      /* NEW GRADIENT: Stays solid purple for most of the width, only fades at the very tips */
+      background: linear-gradient(90deg, transparent 0%, rgba(139, 92, 246, 0.4) 10%, rgba(139, 92, 246, 0.4) 90%, transparent 100%);
+      
+      /* STRETCH: Make the line 20% wider than the text block */
+      width: 120%;
+      margin-left: -10%; /* This pulls it back to the left so it stays centered */
+      
+      /* Vertical Spacing (Keep what we set earlier) */
+      margin-top: 75px;
+      margin-bottom: 75px;
+      
+      position: relative;
+    }
+
+    .section-divider::after {
+      content: '◆';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #8b5cf6;
+      background: #000000;
+      padding: 0 12px;
+      font-size: 1rem;
+    }
+
+    /* ===== RESPONSIVE DESIGN FOR MOBILE ===== */
+    @media (max-width: 768px) {
+      /* Hero section adjustments for mobile */
+      .hero-title {
+        font-size: 2rem; /* Smaller title on mobile */
+        line-height: 1.2;
+      }
+
+      .hero-description {
+        font-size: 1rem; /* Smaller description */
+      }
+
+      .hero-banner {
+        padding: 60px 20px; /* Reduced padding */
+        min-height: auto;
+      }
+
+      .hero-cta {
+        padding: 12px 30px;
+        font-size: 0.95rem;
+      }
+
+      /* Content sections for mobile */
+      .section-block {
+        padding: 30px 20px; /* Less padding on mobile */
+        margin-bottom: 25px;
+      }
+
+      .section-header {
+        font-size: 1.6rem; /* Smaller headers */
+      }
+
+      .subsection-header {
+        font-size: 1.2rem;
+      }
+
+      .page-container {
+        padding: 40px 15px; /* Tighter page margins */
+      }
+
+      /* List items spacing on mobile */
+      .content-list li {
+        padding: 8px 0 8px 30px;
+        font-size: 0.95rem;
+      }
+
+      .content-list li::before {
+        font-size: 1.2rem;
+        left: 8px;
+      }
+
+      .toc-list li {
+        padding-left: 35px; /* Adjust TOC spacing */
+      }
+
+      /* Text content sizing */
+      .text-content {
+        font-size: 0.95rem;
+      }
+
+      /* Feature highlight boxes */
+      .feature-highlight {
+        padding: 20px 20px;
+      }
+
+      /* Visual placeholders */
+      .visual-placeholder {
+        padding: 40px 20px;
+      }
+
+      /* Tools grid for mobile - single column */
+      #tools-used div[style*="grid"] {
+        grid-template-columns: 1fr !important; /* Single column on mobile */
+      }
+
+      /* Dividers */
+      .section-divider {
+        margin: 35px 0;
+      }
+    }
+
+    /* Extra small screens (phones < 480px) */
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 1.7rem;
+      }
+
+      .hero-description {
+        font-size: 0.9rem;
+      }
+
+      .section-header {
+        font-size: 1.4rem;
+      }
+
+      .section-block {
+        padding: 25px 15px;
+      }
+
+      /* Make logo images responsive */
+      img[alt="Power BI"],
+      img[alt="Excel"],
+      img[alt="Kaggle"],
+      img[alt="LinkedIn"] {
+        width: 28px !important;
+        height: 28px !important;
+      }
+    }
+
+/* ===== SCROLL TO TOP BUTTON ===== */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px; /* Positioned at Bottom right */
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #8b5cf6, #ec4899); /* Matching purple gradient */
+      color: white;
+      border: none;
+      border-radius: 50%;
+      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.5);
+      cursor: pointer;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0; /* Hidden by default */
+      pointer-events: none; /* Not clickable when hidden */
+      transform: translateY(20px);
+      transition: all 0.4s ease;
+    }
+
+    /* Class used by JS to show the button */
+    #scrollTopBtn.show-btn {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+
+    #scrollTopBtn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(139, 92, 246, 0.8);
+      background: linear-gradient(135deg, #a78bfa, #f472b6);
+    }
+
+
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="page-background"></div><!-- Hero Section -->
+  <header class="hero-banner">
+   <div class="hero-inner">
+    <h1 class="hero-title" id="main-title">🦈 Shark Tank India <br> Power BI Dashboard</h1>
+    <p class="hero-description" id="subtitle">🚀 A complete analysis of Shark Tank India (Seasons 1–4) using Power BI.</p><a href="https://app.powerbi.com/view?r=eyJrIjoiZGI3MDkxOWUtZjQyNy00YjE1LWIyYzItZjNjNmVlMWNkOTAxIiwidCI6ImQ4MTIxYzJhLTEzMzktNDk2NC1hN2NmLWMyZjU5OTAxYzBlNiJ9" target="_blank" rel="noopener noreferrer" class="hero-cta" id="dashboard-link"> View Live Dashboard</a>
+   </div>
+  </header><!-- Main Content Area -->
+  <div class="content-wrapper">
+   <div class="page-container"><!-- Table of Contents -->
+    <section class="section-block toc-block">
+     <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 40px;">
+      <svg width="40" height="40" viewbox="0 0 40 40" fill="none" style="filter: drop-shadow(0 0 15px rgba(167, 139, 250, 0.5));"><rect width="40" height="40" rx="8" fill="url(#toc-gradient)" /> <path d="M13 15H27M13 20H27M13 25H23" stroke="white" stroke-width="2.5" stroke-linecap="round" /> <defs>
+        <lineargradient id="toc-gradient" x1="0" y1="0" x2="40" y2="40">
+         <stop offset="0%" stop-color="#a78bfa" />
+         <stop offset="100%" stop-color="#8b5cf6" />
+        </lineargradient>
+       </defs>
+      </svg>
+   <h2 class="section-header" style="margin: 0; padding-bottom: 0; line-height: 1;">Table of Contents</h2>
+     </div>
+     <ul class="content-list toc-list">
+      <li><a href="#project-overview" class="toc-link">Project Overview</a></li>
+      <li><a href="#dataset-details" class="toc-link">Dataset Details</a></li>
+      <li><a href="#data-cleaning" class="toc-link">Data Cleaning and Preparation</a></li>
+      <li><a href="#dashboard-pages" class="toc-link">Dashboard Pages</a></li>
+      <li><a href="#key-insights" class="toc-link">Key Insights</a></li>
+      <li><a href="#tools-used" class="toc-link">Tools Used</a></li>
+      <li><a href="#what-i-learned" class="toc-link">What I Learned</a></li>
+      <li><a href="#conclusion" class="toc-link">Conclusion</a></li>
+      <li><a href="#contact" class="toc-link">Contact</a></li>
+     </ul>
+    </section>
+    <div class="section-divider"></div><!-- Project Overview -->
+    <section class="section-block" id="project-overview">
+     <h2 class="section-header">Project Overview</h2>
+     <p class="text-content">This project is an end to end Power BI dashboard analyzing all four seasons of Shark Tank India, created using a structured dataset sourced from Kaggle. My goal was to explore funding patterns, investor behavior, industry performance, and founder demographics through a clean, interactive, and easy to understand report.</p>
+     <p class="text-content">The dashboard includes:</p>
+     <ul class="content-list">
+      <li>Dynamic KPIs</li>
+      <li>Multi-page analysis</li>
+      <li>Slicer-driven insights</li>
+      <li>Professionally designed layouts</li>
+      <li>Clean formatting</li>
+      <li>DAX-powered logic for ranking, dynamic images, titles, and metrics</li>
+     </ul>
+     <p class="text-content">The dashboard is fully interactive, includes dynamic DAX calculations, clean navigation, and professional UI/UX design, making it ideal for portfolio demonstrations and analytics practice.</p>
+    </section>
+    <div class="section-divider"></div><!-- Dataset Details -->
+    <section class="section-block" id="dataset-details">
+     <h2 class="section-header">Dataset Details</h2>
+     <div style="margin-bottom: 20px;"><!-- Source line with inline Kaggle logo -->
+     <p class="text-content" style="margin: 0 0 8px 0; display: flex; align-items: center; gap: 8px;">
+  <strong>Source:</strong> 
+  <!-- Updated to the 'k' icon -->
+  <img src="https://www.vectorlogo.zone/logos/kaggle/kaggle-icon.svg" alt="Kaggle" style="height: 24px; width: 24px; vertical-align: middle;"> 
+  Kaggle – Shark Tank India Dataset
+</p>
+      <p class="text-content" style="margin: 0;"><strong>Link : 🔗</strong> <a href="https://www.kaggle.com/datasets/thirumani/shark-tank-india" target="_blank" rel="noopener noreferrer" class="inline-link">Go to dataset page</a></p>
+     </div>
+     <p class="text-content">The original dataset contained:</p>
+     <ul class="content-list">
+      <li>Startup details</li>
+      <li>Deal-related fields</li>
+      <li>Sharks' investment columns</li>
+      <li>Pitcher demographics</li>
+      <li>Industry information</li>
+      <li>Multiple financial fields</li>
+     </ul>
+     <p class="text-content">However, the dataset was not directly ready for analysis. Many fields were unnecessary, inconsistent, or required reshaping. Hence, This dataset was cleaned, transformed and enhanced using:</p>
+     <div class="feature-highlight">
+      <p class="text-content"><span class="check-icon">✔</span> Power Query</p>
+      <p class="text-content"><span class="check-icon">✔</span> Excel</p>
+      <p class="text-content"><span class="check-icon">✔</span> DAX measures</p>
+      <p class="text-content"><span class="check-icon">✔</span> Custom logic to fix multiple problems</p>
+     </div>
+    </section>
+    <div class="section-divider"></div><!-- Data Cleaning -->
+    <section class="section-block" id="data-cleaning">
+     <h2 class="section-header">Data Cleaning and Preparation</h2>
+     <p class="text-content">The raw Kaggle dataset contained 80 fields/columns and 630+ records. I spent a good amount of time preparing the dataset to make it suitable for a clean Power BI dashboard.</p>
+     <h3 class="subsection-header"><span class="check-icon">✔</span> Key cleaning steps I performed:</h3>
+     <ul class="content-list">
+      <li>Removed unwanted and irrelevant fields</li>
+      <li>Standardized industry names, states, cities</li>
+      <li>Fixed multiple rows per pitch issue (same pitch spread across multiple rows)</li>
+      <li>Used Power Query to unpivot shark investment fields</li>
+      <li>Created a shark-invested list column</li>
+      <li>Removed duplicate entries</li>
+      <li>Converted financial columns to the correct data types</li>
+      <li>Cleaned and categorized age groups</li>
+      <li>Added gender categories (Male / Female / Mixed / Trans)</li>
+      <li>Replaced blank values with proper nulls</li>
+      <li>Ensured accurate distinct pitch-level calculations</li>
+      <li>Cleaned deal-related fields to avoid inflated sums</li>
+      <li>Fixed the "blank shark" deal problem</li>
+      <li>Added extra helper tables (Metric Selector, Podium Table) for dynamic visuals</li>
+      <li>Ensured smooth slicer interactions across pages</li>
+     </ul>
+     <p class="text-content">After cleaning, I prepared a structured version of the dataset suitable for multi-page reporting.</p>
+    </section>
+    <div class="section-divider"></div><!-- Dashboard Pages -->
+    <section class="section-block" id="dashboard-pages">
+     <h2 class="section-header">Dashboard Pages</h2>
+     <p class="text-content">My dashboard contains four pages, each with a specific purpose:</p>
+     <h3 class="subsection-header">1) Overview</h3>
+     <p class="text-content">Gives a high-level snapshot of:</p>
+     <ul class="content-list">
+      <li>Total pitches</li>
+      <li>Total deals</li>
+      <li>Total investment</li>
+      <li>Avg deal amounts</li>
+      <li>Industry distribution</li>
+      <li>Top startups</li>
+      <li>Top-performing sharks</li>
+     </ul>
+     <div class="visual-placeholder">
+      <p>[Dashboard Overview Image - images/1.png]</p>
+     </div>
+     <h3 class="subsection-header">2) Sharks/Investors</h3>
+     <p class="text-content">A complete Sharks-focused breakdown:</p>
+     <ul class="content-list">
+      <li>Deals closed by each shark</li>
+      <li>Total investment amount</li>
+      <li>Shark-wise investment trends</li>
+      <li>Industries each shark invested in</li>
+      <li>List of startups invested by the selected shark</li>
+      <li>Dynamic Top 3 Podium Ranking with shark images</li>
+      <li>Works perfectly with slicers and metric</li>
+     </ul>
+     <div class="visual-placeholder">
+      <p>[Sharks/Investors Page Image - images/2.png]</p>
+     </div>
+     <h3 class="subsection-header">3) Industries</h3>
+     <p class="text-content">A deep dive into industries:</p>
+     <ul class="content-list">
+      <li>Industries by investment amount or deal count</li>
+      <li>Top startups within each industry</li>
+      <li>KPI summary for selected industries</li>
+      <li>Season-wise trends per industry</li>
+     </ul>
+     <div class="visual-placeholder">
+      <p>[Industries Page Image - images/3.png]</p>
+     </div>
+     <h3 class="subsection-header">4) Pitchers/Founders</h3>
+     <p class="text-content">Insights about the pitchers:</p>
+     <ul class="content-list">
+      <li>Gender distribution</li>
+      <li>Age groups</li>
+      <li>Location distribution (city &amp; state)</li>
+      <li>Valuation asks by founders</li>
+      <li>Team size analysis</li>
+     </ul>
+     <div class="visual-placeholder">
+      <p>[Pitchers/Founders Page Image - images/4.png]</p>
+     </div>
+    </section>
+    <div class="section-divider"></div><!-- Key Insights -->
+    <section class="section-block" id="key-insights">
+     <h2 class="section-header">Key Insights</h2>
+     <p class="text-content">Some interesting findings from the dashboard:</p>
+     <ul class="content-list">
+      <li>Industries like Food &amp; Beverages, Fashion, and Medical receive the highest number of investments.</li>
+      <li>Across most seasons, Aman and Namita tend to be among the most active sharks in terms of number of deals.</li>
+      <li>Founders aged 30–50 form the majority.</li>
+      <li>Out of 634 pitches, 360 converted into deals, showing a strong overall conversion rate of 56.78% across all seasons.</li>
+      <li>Maharashtra and Delhi lead in the number of pitches.</li>
+      <li>Season 2 had the highest number of total pitches.</li>
+      <li>NOOE secured the highest individual investment of ₹50M from Peyush, one of the standout deals across seasons.</li>
+     </ul>
+    </section>
+    <div class="section-divider"></div><!-- Tools Used -->
+    <section class="section-block" id="tools-used">
+     <h2 class="section-header">Tools Used</h2>
+     
+     <!-- The Grid Container: Keeps items in 3 columns -->
+     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px 20px; margin-top: 35px;">
+      
+      <!-- 1. Power BI -->
+      <div style="display: flex; align-items: center; gap: 12px;">
+       <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI" style="width: 36px; height: 36px; filter: drop-shadow(0 0 12px rgba(242, 200, 17, 0.4));">
+       <p class="text-content" style="margin: 0;">Power BI Desktop</p>
+      </div>
+
+      <!-- 2. Power Query -->
+      <div style="display: flex; align-items: center; gap: 12px;">
+       <svg width="36" height="36" viewBox="0 0 36 36" fill="none" style="filter: drop-shadow(0 0 12px rgba(33, 115, 70, 0.4));">
+        <rect width="36" height="36" rx="6" fill="#217346" />
+        <text x="18" y="24" font-family="Poppins, sans-serif" font-size="14" font-weight="800" fill="white" text-anchor="middle">PQ</text>
+       </svg>
+       <p class="text-content" style="margin: 0;">Power Query</p>
+      </div>
+
+      <!-- 3. DAX (Yellow Background + Dark Text) -->
+      <div style="display: flex; align-items: center; gap: 12px;">
+       <svg width="36" height="36" viewBox="0 0 36 36" fill="none" style="filter: drop-shadow(0 0 12px rgba(242, 200, 17, 0.4));">
+        <rect width="36" height="36" rx="6" fill="url(#dax-gradient-new)" />
+        <text x="18" y="24" font-family="Poppins, sans-serif" font-size="13" font-weight="800" fill="#252423" text-anchor="middle">DAX</text>
+        <defs>
+         <linearGradient id="dax-gradient-new" x1="0" y1="0" x2="36" y2="36">
+          <stop offset="0%" stop-color="#F2C811" />
+          <stop offset="100%" stop-color="#E6AD10" />
+         </linearGradient>
+        </defs>
+       </svg>
+       <p class="text-content" style="margin: 0;">DAX</p>
+      </div>
+
+      <!-- 4. Excel -->
+      <div style="display: flex; align-items: center; gap: 12px;">
+       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg/120px-Microsoft_Office_Excel_%282019%E2%80%93present%29.svg.png" alt="Excel" style="width: 36px; height: 36px; filter: drop-shadow(0 0 12px rgba(33, 115, 70, 0.4));" onerror="this.src='https://img.icons8.com/color/48/000000/microsoft-excel-2019--v1.png';">
+       <p class="text-content" style="margin: 0;">Excel</p>
+      </div>
+
+      <!-- 5. Canva & Figma (Paintbrush Icon) -->
+      <div style="display: flex; align-items: center; gap: 12px;">
+       <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.4));">
+        <rect width="24" height="24" rx="5" fill="url(#design-gradient-new)" />
+        <path d="M17.5 5.5c.8-.8 2-.8 2.8 0 .8.8.8 2 0 2.8l-8 8-.5 2.5 2.5-.5 8-8zM7 16a3 3 0 1 0 0 6 3 3 0 0 0 0-6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <defs>
+         <linearGradient id="design-gradient-new" x1="0" y1="0" x2="24" y2="24">
+          <stop offset="0%" stop-color="#00C4CC" />
+          <stop offset="100%" stop-color="#A259FF" />
+         </linearGradient>
+        </defs>
+       </svg>
+       <p class="text-content" style="margin: 0;">Canva & Figma</p>
+      </div>
+
+      <!-- 6. Kaggle ('k' Icon) -->
+      <div style="display: flex; align-items: center; gap: 12px;">
+       <img src="https://www.vectorlogo.zone/logos/kaggle/kaggle-icon.svg" alt="Kaggle" style="width: 36px; height: 36px; filter: drop-shadow(0 0 12px rgba(32, 201, 255, 0.4));">
+       <p class="text-content" style="margin: 0;">Kaggle</p>
+      </div>
+      
+     </div>
+    </section>
+    <div class="section-divider"></div><!-- What I Learned -->
+    <section class="section-block" id="what-i-learned">
+     <h2 class="section-header">What I Learned</h2>
+     <p class="text-content">While building this project, I improved my skills in:</p>
+     <ul class="content-list">
+      <li><span class="check-icon">✔</span> Power Query data cleaning</li>
+      <li><span class="check-icon">✔</span> Unpivoting data for star-schema-like structures</li>
+      <li><span class="check-icon">✔</span> Advanced DAX (TOPN, RANKX, KEEPFILTERS, dynamic filters)</li>
+      <li><span class="check-icon">✔</span> Creating dynamic titles and dynamic images</li>
+      <li><span class="check-icon">✔</span> Fixing complex dataset issues</li>
+      <li><span class="check-icon">✔</span> Dashboard layout and UX design</li>
+      <li><span class="check-icon">✔</span> Controlling visual interactions</li>
+      <li><span class="check-icon">✔</span> Creating professional multi-page reports</li>
+     </ul>
+    </section>
+    <div class="section-divider"></div><!-- Conclusion -->
+    <section class="section-block" id="conclusion">
+     <h2 class="section-header">Conclusion</h2>
+     <p class="text-content">Working on this dashboard was a great learning experience that combined data cleaning, analytical thinking, and design. It allowed me to convert raw information into actionable insights while practicing real-world Power BI development.</p>
+    </section>
+
+    
+<div class="section-divider"></div><!-- Contact -->
+    <section class="section-block" id="contact">
+     <h2 class="section-header">Contact</h2>
+     <p class="text-content">If you'd like to connect, share feedback on this project, or want to learn how I built this dashboard, feel free to reach out:</p><!-- Using official LinkedIn logo from their brand resources -->
+     <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 25px;"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" style="width: 36px; height: 36px; filter: drop-shadow(0 0 12px rgba(10, 102, 194, 0.4));" onerror="this.style.display='none';">
+      <p class="text-content" style="margin: 0;"><strong>LinkedIn : 🔗</strong> <a href="https://www.linkedin.com/in/vivek-raturi/" target="_blank" rel="noopener noreferrer" class="inline-link">Vivek Raturi</a></p>
+     </div>
+    </section>
+   </div>
+  </div><!-- Canva Elements SDK for making content editable -->
+  <script src="/_sdk/element_sdk.js"></script>
+  <script>
+    /* ===== EDITABLE CONFIGURATION ===== */
+    /* Default values for editable fields - change these to update default content */
+    const defaultConfig = {
+      main_title: "🦈 Shark Tank India – Power BI Dashboard", // Main hero title
+      subtitle: "🚀 A complete analysis of Shark Tank India (Seasons 1–4) using Power BI.", // Hero subtitle
+      dashboard_link: "https://app.powerbi.com/view?r=eyJrIjoiZGI3MDkxOWUtZjQyNy00YjE1LWIyYzItZjNjNmVlMWNkOTAxIiwidCI6ImQ4MTIxYzJhLTEzMzktNDk2NC1hN2NmLWMyZjU5OTAxYzBlNiJ9" // Link for CTA button
+    };
+
+    /* ===== UPDATE PAGE CONTENT ===== */
+    /* This function updates the page when config values change */
+    async function onConfigChange(config) {
+      // Get values from config or fall back to defaults
+      const mainTitle = config.main_title || defaultConfig.main_title;
+      const subtitle = config.subtitle || defaultConfig.subtitle;
+      const dashboardLink = config.dashboard_link || defaultConfig.dashboard_link;
+
+      // Update DOM elements with new values
+      document.getElementById('main-title').textContent = mainTitle;
+      document.getElementById('subtitle').textContent = subtitle;
+      document.getElementById('dashboard-link').href = dashboardLink;
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ["main_title", config.main_title || defaultConfig.main_title],
+        ["subtitle", config.subtitle || defaultConfig.subtitle],
+        ["dashboard_link", config.dashboard_link || defaultConfig.dashboard_link]
+      ]);
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a2fd055b4fe7fab',t:'MTc2Mzg5MTk2Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+
+<!-- Scroll To Top Button -->
+<button id="scrollTopBtn" title="Go to top">
+    <!-- Simple SVG Arrow Up -->
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 15l-6-6-6 6"/>
+    </svg>
+</button>
+<script>
+  // Get the button
+  const scrollBtn = document.getElementById("scrollTopBtn");
+  
+  // Get the Table of Contents block to calculate position
+  const tocSection = document.querySelector(".toc-block");
+
+  window.onscroll = function() {
+    // Calculate where the TOC ends
+    // offsetTop is TOC distance from top, offsetHeight is height of TOC
+    let triggerPoint = tocSection.offsetTop + tocSection.offsetHeight;
+
+    // If we have scrolled past the TOC, show the button
+    if (document.documentElement.scrollTop > triggerPoint || document.body.scrollTop > triggerPoint) {
+      scrollBtn.classList.add("show-btn");
+    } else {
+      scrollBtn.classList.remove("show-btn");
+    }
+  };
+
+  // When the user clicks the button, scroll to the top smoothly
+  scrollBtn.addEventListener("click", function() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
+
+</body>
+</html>
