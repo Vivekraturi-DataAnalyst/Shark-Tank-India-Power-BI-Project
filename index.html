@@ -177,25 +177,24 @@
 
     /* Special TOC Block */
 .toc-block {
-      /* Base: Same dark glass effect as other blocks */
+      /* Identical styling to standard section-blocks */
       background: linear-gradient(145deg, rgba(30, 20, 50, 0.5), rgba(20, 15, 35, 0.5));
+      backdrop-filter: blur(10px);
       
-      /* The "Slight Glow": A very faint purple light at the top center */
-      background-image: radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.15), transparent 60%),
-                        linear-gradient(145deg, rgba(30, 20, 50, 0.5), rgba(20, 15, 35, 0.5));
-      
-      /* Standard Borders and Shadow (Same as other blocks) */
-      border: 1px solid rgba(139, 92, 246, 0.2); 
+      border: 1px solid rgba(139, 92, 246, 0.15);
       border-radius: 16px;
       padding: 35px;
       margin-bottom: 30px;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(10px);
       
       position: relative;
       overflow: hidden;
     }
-
+    
+    /* Ensure no animations are running */
+    .toc-block::before {
+      display: none;
+    }
 
     @keyframes rotate {
       from { transform: rotate(0deg); }
@@ -600,6 +599,32 @@
       background: linear-gradient(135deg, #a78bfa, #f472b6);
     }
 
+   /* ===== DASHBOARD IMAGES ===== */
+    .dashboard-img {
+      /* 1. Make it smaller (85% width instead of 100%) */
+      width: 85%;
+      display: block; /* Required to center it */
+      
+      /* 2. Centering & Spacing */
+      /* Top: 30px | Left/Right: Auto (Centers it) | Bottom: 80px (The Big Gap you asked for) */
+      margin: 30px auto 80px auto; 
+      
+      /* 3. Rounder Corners */
+      border-radius: 24px; 
+      
+      /* Optional: Keep the subtle purple border, or remove this line if you only want your white border */
+      border: 2px solid rgba(139, 92, 246, 0.3);
+      
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      transition: all 0.4s ease;
+      cursor: pointer;
+    }
+
+    .dashboard-img:hover {
+      transform: scale(1.02);
+      border-color: #a78bfa;
+      box-shadow: 0 15px 40px rgba(139, 92, 246, 0.25);
+    }
 
   </style>
   <style>@view-transition { navigation: auto; }</style>
@@ -958,4 +983,5 @@
 </body>
 
 </html>
+
 
