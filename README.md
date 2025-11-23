@@ -9,10 +9,8 @@
 
 
 
-###  **[CLICK HERE TO VIEW THE LIVE PROJECT WEBSITE](https://[your-username].github.io/[repo-name]/)**
-<br>
+###  **[CLICK HERE TO VIEW THE LIVE PROJECT WEBSITE](https://vivekraturi-dataanalyst.github.io/Shark-Tank-India-Power-BI-Project/)**
 
----  
 <br>
   
 **ℹ️ Note:**
