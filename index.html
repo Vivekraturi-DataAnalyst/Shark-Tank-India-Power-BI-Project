@@ -250,20 +250,24 @@
       padding-left: 18px; /* Space for left bar decoration */
     }
 
-    /* Left vertical bar decoration for subsection headers */
-    .subsection-header::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 4px; /* Bar thickness */
-      height: 24px; /* Bar height */
-      /* Gradient bar - customize colors */
-      background: linear-gradient(180deg, #8b5cf6, #ec4899);
-      border-radius: 2px;
+/* Subsection heading (Centered) */
+    .subsection-header {
+      font-size: 1.3rem; 
+      font-weight: 600;
+      color: #e9d5ff; /* Lighter purple color */
+      margin: 40px 0 20px 0; /* Adjusted margins */
+      position: relative;
+      
+      /* NEW: Center Alignment */
+      text-align: center;
+      padding-left: 0; /* Remove the space that was used for the side bar */
     }
 
+    /* Remove the left-side vertical bar */
+    .subsection-header::before {
+      display: none;
+    }
+   
     /* Paragraph Text */
     .text-content {
       font-size: 0.98rem; /* Slightly smaller text */
@@ -1244,6 +1248,7 @@
 </body>
 
 </html>
+
 
 
 
