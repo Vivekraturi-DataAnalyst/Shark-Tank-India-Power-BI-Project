@@ -641,30 +641,31 @@
       color: #a78bfa;
     }
 
-/* ===== MOBILE TOAST NOTIFICATION (Updated High-Contrast) ===== */
+
+
+   /* ===== MOBILE TOAST NOTIFICATION (Top Slide-In) ===== */
     .mobile-toast {
       position: fixed;
-      bottom: 30px;
+      top: 30px; /* MOVED TO TOP */
       left: 50%;
-      transform: translate(-50%, 150%); /* Start hidden */
+      
+      /* Start hidden ABOVE the screen (-150%) */
+      transform: translate(-50%, -150%); 
       
       width: 90%;
       max-width: 400px;
       
-      /* NEW STYLE: Pure Black to stand out against Purple Site */
+      /* Pure Black Background */
       background: #000000; 
       
-      /* Crisp White Border to define edges */
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      /* STYLE CHANGE: Uniform Subtle White Border */
+      border: 1px solid rgba(255, 255, 255, 0.3);
       
-      /* Bright Neon Accent Bar */
-      border-left: 5px solid #e056fd; 
+      /* "Dark Glow" Shadow */
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9);
       
-      padding: 20px; /* Increased padding */
+      padding: 15px 20px;
       border-radius: 12px;
-      
-      /* heavy shadow to make it float */
-      box-shadow: 0 10px 50px rgba(0, 0, 0, 0.9);
       
       z-index: 10000;
       display: none;
@@ -674,8 +675,9 @@
       transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
+    /* Animation state */
     .mobile-toast.show-toast {
-      transform: translate(-50%, 0);
+      transform: translate(-50%, 0); /* Slides down into view */
     }
 
     @media (max-width: 768px) {
@@ -683,7 +685,6 @@
         display: flex;
       }
     }
-   
 /* ================================================================= */
     /* 📱 FINAL MOBILE OPTIMIZATION (With Layout & Indent Fixes)         */
     /* ================================================================= */
@@ -1259,6 +1260,7 @@
 </body>
 
 </html>
+
 
 
 
