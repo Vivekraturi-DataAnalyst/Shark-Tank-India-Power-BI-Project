@@ -637,6 +637,48 @@
       color: #a78bfa;
     }
 
+   /* ===== MOBILE TOAST NOTIFICATION ===== */
+    .mobile-toast {
+      position: fixed;
+      bottom: 30px; /* Position from bottom */
+      left: 50%;
+      /* Start hidden below the screen (150% down) and centered (-50% left) */
+      transform: translate(-50%, 150%); 
+      
+      width: 90%; /* Fit mobile width */
+      max-width: 400px;
+      
+      /* Theme Colors */
+      background: rgba(15, 5, 39, 0.95); /* Deep Dark Purple */
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-left: 5px solid #8b5cf6; /* Purple accent bar on left */
+      
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+      
+      z-index: 10000;
+      display: none; /* Hidden on PC */
+      align-items: center;
+      gap: 15px;
+      
+      /* Smooth Slide Animation */
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Class to make it slide up */
+    .mobile-toast.show-toast {
+      transform: translate(-50%, 0); /* Slide into view */
+    }
+
+    /* Only enable layout on Mobile */
+    @media (max-width: 768px) {
+      .mobile-toast {
+        display: flex;
+      }
+    }
+   
 /* ================================================================= */
     /* 📱 FINAL MOBILE OPTIMIZATION (With Layout & Indent Fixes)         */
     /* ================================================================= */
@@ -1157,11 +1199,42 @@
       lightbox.classList.remove('active');
     }
   });
+
+   // Automatic Mobile Toast Logic
+  window.addEventListener('load', () => {
+    // Only run on mobile screens
+    if (window.innerWidth <= 768) {
+      const toast = document.getElementById('mobileToast');
+      
+      // 1. Slide UP after 2 seconds
+      setTimeout(() => {
+        toast.classList.add('show-toast');
+      }, 2000);
+
+      // 2. Slide DOWN after 5 seconds (Total 7 seconds from load)
+      setTimeout(() => {
+        toast.classList.remove('show-toast');
+      }, 7000);
+    }
+  });
 </script>
+
+  <!-- Mobile Advice Toast -->
+<div id="mobileToast" class="mobile-toast">
+  <!-- Icon -->
+  <div style="font-size: 1.8rem;">💻</div>
+  
+  <!-- Text -->
+  <div style="text-align: left;">
+    <strong style="color: white; font-size: 0.95rem; display: block;">Desktop Recommended</strong>
+    <span style="color: #d8b4fe; font-size: 0.85rem; line-height: 1.2;">View on PC for the best dashboard experience.</span>
+  </div>
+</div>
 
 </body>
 
 </html>
+
 
 
 
