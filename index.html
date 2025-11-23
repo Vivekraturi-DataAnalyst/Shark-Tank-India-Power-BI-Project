@@ -6,7 +6,11 @@
   <title>Shark Tank India - Power BI Dashboard</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
   <style>
-    /* ===== BASE STYLES ===== */
+   /* ===== BASE STYLES ===== */
+    html {
+      scroll-behavior: smooth; /* <--- THIS IS THE MAGIC LINE */
+    }
+
     body {
       box-sizing: border-box;
       margin: 0;
@@ -167,7 +171,9 @@
       margin-bottom: 30px; /* Space between sections */
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); /* Drop shadow */
       transition: all 0.3s ease; /* Smooth hover animation */
+     scroll-margin-top: 80px; /* Stops scrolling 80px above the section */
     }
+    
 
     .section-block:hover {
       transform: translateY(-5px);
@@ -454,114 +460,7 @@
       font-size: 1rem;
     }
 
-    /* ===== RESPONSIVE DESIGN FOR MOBILE ===== */
-    @media (max-width: 768px) {
-      /* Hero section adjustments for mobile */
-      .hero-title {
-        font-size: 2rem; /* Smaller title on mobile */
-        line-height: 1.2;
-      }
-
-      .hero-description {
-        font-size: 1rem; /* Smaller description */
-      }
-
-      .hero-banner {
-        padding: 60px 20px; /* Reduced padding */
-        min-height: auto;
-      }
-
-      .hero-cta {
-        padding: 12px 30px;
-        font-size: 0.95rem;
-      }
-
-      /* Content sections for mobile */
-      .section-block {
-        padding: 30px 20px; /* Less padding on mobile */
-        margin-bottom: 25px;
-      }
-
-      .section-header {
-        font-size: 1.6rem; /* Smaller headers */
-      }
-
-      .subsection-header {
-        font-size: 1.2rem;
-      }
-
-      .page-container {
-        padding: 40px 15px; /* Tighter page margins */
-      }
-
-      /* List items spacing on mobile */
-      .content-list li {
-        padding: 8px 0 8px 30px;
-        font-size: 0.95rem;
-      }
-
-      .content-list li::before {
-        font-size: 1.2rem;
-        left: 8px;
-      }
-
-      .toc-list li {
-        padding-left: 35px; /* Adjust TOC spacing */
-      }
-
-      /* Text content sizing */
-      .text-content {
-        font-size: 0.95rem;
-      }
-
-      /* Feature highlight boxes */
-      .feature-highlight {
-        padding: 20px 20px;
-      }
-
-      /* Visual placeholders */
-      .visual-placeholder {
-        padding: 40px 20px;
-      }
-
-      /* Tools grid for mobile - single column */
-      #tools-used div[style*="grid"] {
-        grid-template-columns: 1fr !important; /* Single column on mobile */
-      }
-
-      /* Dividers */
-      .section-divider {
-        margin: 35px 0;
-      }
-    }
-
-    /* Extra small screens (phones < 480px) */
-    @media (max-width: 480px) {
-      .hero-title {
-        font-size: 1.7rem;
-      }
-
-      .hero-description {
-        font-size: 0.9rem;
-      }
-
-      .section-header {
-        font-size: 1.4rem;
-      }
-
-      .section-block {
-        padding: 25px 15px;
-      }
-
-      /* Make logo images responsive */
-      img[alt="Power BI"],
-      img[alt="Excel"],
-      img[alt="Kaggle"],
-      img[alt="LinkedIn"] {
-        width: 28px !important;
-        height: 28px !important;
-      }
-    }
+   
 
 /* ===== SCROLL TO TOP BUTTON ===== */
     #scrollTopBtn {
@@ -725,6 +624,134 @@
       transform: rotate(90deg);
       color: #a78bfa;
     }
+
+/* ================================================================= */
+    /* 📱 FINAL MOBILE OPTIMIZATION (Replaces previous mobile code)      */
+    /* ================================================================= */
+    @media (max-width: 768px) {
+      
+      /* 1. CRITICAL LAYOUT FIXES (Stops the side overflow) */
+      body, html {
+        overflow-x: hidden; /* Cuts off the white space on the right */
+        width: 100%;
+      }
+
+      .page-container {
+        padding: 30px 15px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      /* Fix the Divider Line (It was too wide for mobile) */
+      .section-divider {
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+
+      /* 2. HERO SECTION ADJUSTMENTS */
+      .hero-banner {
+        padding: 60px 20px;
+        min-height: auto;
+        /* Fix background mask on mobile */
+        mask-image: none; 
+        -webkit-mask-image: none;
+      }
+
+      .hero-title {
+        font-size: 2rem !important;
+        line-height: 1.2;
+      }
+
+      .hero-description {
+        font-size: 1rem;
+      }
+
+      .hero-cta {
+        padding: 12px 30px;
+        font-size: 0.95rem;
+      }
+
+      /* 3. COLOR & BLOCK FIXES (Solves the "Washed Out" look) */
+      .section-block, .toc-block {
+        padding: 25px 20px !important;
+        margin-bottom: 25px;
+        
+        /* FORCE SOLID DARK COLOR (Glass effect breaks on some phones) */
+        background: #0f0527 !important; 
+        border: 1px solid rgba(139, 92, 246, 0.3);
+        backdrop-filter: none;
+      }
+
+      /* 4. TOOLS GRID (2 Columns is better than 1) */
+      div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr 1fr !important; 
+        gap: 15px !important;
+      }
+
+      /* 5. IMAGE & LIGHTBOX FIXES */
+      .dashboard-img {
+        width: 100% !important;
+        margin: 15px 0 40px 0 !important;
+      }
+      
+      .image-wrapper {
+        padding: 10px;
+        margin: 20px 0 50px 0;
+      }
+
+      /* Lightbox on Mobile */
+      .lightbox {
+        padding: 0;
+      }
+      
+      .lightbox-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        border-radius: 0;
+        background: #000;
+      }
+      
+      .lightbox-cta {
+        width: 80%; /* Button takes mostly full width */
+        text-align: center;
+        bottom: 20px;
+      }
+
+      /* 6. TEXT & LIST SIZING */
+      .section-header {
+        font-size: 1.6rem !important;
+      }
+
+      .subsection-header {
+        font-size: 1.2rem;
+      }
+
+      .content-list li {
+        padding-left: 10px; /* Tighter lists */
+        font-size: 0.95rem;
+      }
+      
+      /* TOC Specifics */
+      .toc-list {
+        grid-template-columns: 1fr !important; /* Single column TOC on phone */
+        text-align: left;
+      }
+    }
+
+    /* EXTRA SMALL PHONES (Like older iPhones) */
+    @media (max-width: 480px) {
+      .hero-title { font-size: 1.7rem !important; }
+      .section-header { font-size: 1.4rem !important; }
+      
+      /* Make logos smaller */
+      img[alt="Power BI"], img[alt="Excel"], img[alt="Kaggle"] {
+        width: 28px !important;
+        height: 28px !important;
+      }
+    }
+      
    
   </style>
   <style>@view-transition { navigation: auto; }</style>
@@ -1129,6 +1156,7 @@
 </body>
 
 </html>
+
 
 
 
