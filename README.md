@@ -14,7 +14,7 @@
 <br>
   
 **ℹ️ Note:**
-This repository hosts the source code for the portfolio website. 
+This repository hosts the source code for the project website. 
 
 For the **full project description** and **interactive Live dashboard** please visit the live website link above.
 
