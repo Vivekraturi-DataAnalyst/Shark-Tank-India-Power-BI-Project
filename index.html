@@ -824,7 +824,7 @@
    <div class="page-container"><!-- Table of Contents -->
     <section class="section-block toc-block">
      <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 40px;">
-      <svg width="40" height="40" viewbox="0 0 40 40" fill="none" style="filter: drop-shadow(0 0 15px rgba(167, 139, 250, 0.5));"><rect width="40" height="40" rx="8" fill="url(#toc-gradient)" /> <path d="M13 15H27M13 20H27M13 25H23" stroke="white" stroke-width="2.5" stroke-linecap="round" /> <defs>
+      <svg width="40" height="40" viewbox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="url(#toc-gradient)" /> <path d="M13 15H27M13 20H27M13 25H23" stroke="white" stroke-width="2.5" stroke-linecap="round" /> <defs>
         <lineargradient id="toc-gradient" x1="0" y1="0" x2="40" y2="40">
          <stop offset="0%" stop-color="#a78bfa" />
          <stop offset="100%" stop-color="#8b5cf6" />
@@ -1068,22 +1068,26 @@
 
     
 <div class="section-divider"></div><!-- Contact -->
- <section class="section-block" id="contact">
+<section class="section-block" id="contact">
      <h2 class="section-header">Contact</h2>
-     <p class="text-content">If you'd like to connect, share feedback on this project, or want to learn how I built this dashboard, feel free to reach out:</p>
+     <p class="text-content" style="text-align: center;">If you'd like to connect, share feedback on this project, or want to learn how I built this dashboard, feel free to reach out:</p>
      
-     <!-- LinkedIn -->
-     <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 25px;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" style="width: 36px; height: 36px; filter: drop-shadow(0 0 12px rgba(10, 102, 194, 0.4));">
-      <p class="text-content" style="margin: 0;"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/vivek-raturi/" target="_blank" rel="noopener noreferrer" class="inline-link">Vivek Raturi</a></p>
-     </div>
+     <!-- WRAPPER: Centers the group, but aligns items left inside -->
+     <div style="display: flex; flex-direction: column; width: fit-content; margin: 25px auto 0 auto; gap: 15px;">
+      
+      <!-- LinkedIn Row -->
+      <div style="display: flex; align-items: center; gap: 15px;">
+       <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" style="width: 36px; height: 36px; filter: drop-shadow(0 0 12px rgba(10, 102, 194, 0.4));">
+       <p class="text-content" style="margin: 0;"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/vivek-raturi/" target="_blank" rel="noopener noreferrer" class="inline-link">Vivek Raturi</a></p>
+      </div>
 
-     <!-- NEW: Email -->
-     <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 15px;">
-      <!-- Official Gmail Icon -->
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail" style="width: 36px; height: 36px; filter: drop-shadow(0 0 12px rgba(234, 67, 53, 0.4));">
-      <!-- Replace 'your.email@gmail.com' with your actual email -->
-      <p class="text-content" style="margin: 0;"><strong>Email:   </strong> <a href="mailto:vivekraturi.work@gmail.com" class="inline-link">Send Mail   </a></p>
+      <!-- Email Row -->
+      <div style="display: flex; align-items: center; gap: 15px;">
+       <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail" style="width: 36px; height: 36px; filter: drop-shadow(0 0 12px rgba(234, 67, 53, 0.4));">
+       <!-- Changed "Send Mail" to the actual email address -->
+       <p class="text-content" style="margin: 0;"><strong>Email:</strong> <a href="mailto:your.email@gmail.com" class="inline-link">your.email@gmail.com</a></p>
+      </div>
+      
      </div>
     </section>
     
@@ -1260,6 +1264,7 @@
 </body>
 
 </html>
+
 
 
 
